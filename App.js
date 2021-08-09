@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Box, NativeBaseProvider } from "native-base";
+import React from "react";
+import { SafeAreaView, ScrollView, View } from "react-native";
+import Route from "./router/route.js";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+// add-fas
+library.add(fas);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <Box safeAreaTop backgroundColor="#fff" />
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+        <Route />
+      </SafeAreaView>
+    </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
